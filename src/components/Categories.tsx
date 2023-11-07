@@ -30,9 +30,9 @@ export default function Categories() {
   );
   return (
     <nav>
-      <ul>
+      <ul className="w-screen flex justify-evenly items-center border border-white rounded-xl my-8">
         {mostrarSoloCategorias.map((categoria: any) => (
-          <li key={categoria} className="border border-black m-4 flex flex-row">
+          <li key={categoria} className="m-2 p-1 w-min">
             <Link href={"/"}>{categoria}</Link>
           </li>
         ))}
