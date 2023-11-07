@@ -29,15 +29,14 @@ export default function Categories() {
     new Set(noticias.map((noticias: Noticias) => noticias.category))
   );
   return (
-    <section>
-      {mostrarSoloCategorias.map((categoria: any) => (
-        <article
-          key={categoria}
-          className="border border-black m-4 flex flex-row"
-        >
-          <Link href={"/"}>{categoria}</Link>
-        </article>
-      ))}
-    </section>
+    <nav>
+      <ul>
+        {mostrarSoloCategorias.map((categoria: any) => (
+          <li key={categoria} className="border border-black m-4 flex flex-row">
+            <Link href={"/"}>{categoria}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
