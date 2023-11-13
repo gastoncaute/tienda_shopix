@@ -1,32 +1,18 @@
+import { Producto, obtenerProdctos } from "@/utils/obtenerProductos";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-export async function obtenerNoticias() {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const data = await res.json();
-  return data;
-}
-
-type Noticias = {
-  id: string;
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  price: number;
-};
-
 export default function Categories() {
-  const [noticias, setNoticias] = useState<Noticias[]>([]);
+  const [productos, setProductos] = useState<Producto[]>([]);
   useEffect(() => {
     const fetchData = async () => {
-      const data = await obtenerNoticias();
-      setNoticias(data);
+      const data = await obtenerProdctos();
+      setProductos(data);
     };
     fetchData();
   });
   const mostrarSoloCategorias = Array.from(
-    new Set(noticias.map((noticias: Noticias) => noticias.category))
+    new Set(productos.map((producto: Producto) => producto.category))
   );
   return (
     <nav>
